@@ -28,47 +28,31 @@
             position: relative;
         }
 
-        /* Espacio para el logo */
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
+        /* Logo de la empresa (izquierda) */
         .logo img {
-            max-width: 50px; /* CAMBIA EL TAMAÑO DE LA IMAGEN AQUÍ */
+            width: 400px; /* TAMAÑO DE IMAGEN AQUI: CAMBIA ESTE VALOR PARA AJUSTAR EL TAMAÑO DEL LOGO */
             height: auto;
         }
 
-        .logo-text {
-            margin-left: 10px;
-            font-weight: bold;
-            color: #4c4b4c;
-        }
-
-        /* Estilo para el botón de menú */
+        /* Botón desplegable personalizado (derecha) */
         .dropdown button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding-top: 0px;
+    padding-right: 127px;
+    padding-left: 10px;
+    padding-bottom: 77px;
         }
 
-        .dropdown svg {
-            width: 30px;
-            height: 30px;
-        }
-
-        .cls-1 {
-            fill: none;
-            stroke: #4c4b4c; /* COLOR DEL ICONO DEL MENÚ */
-            stroke-linecap: round;
-            stroke-miterlimit: 10;
-            stroke-width: 7px;
+        .dropdown img {
+            width: 50px; /* TAMAÑO DE IMAGEN AQUI: CAMBIA ESTE VALOR PARA AJUSTAR EL TAMAÑO DEL BOCADILLO */
+            height: auto;
         }
 
         /* Estilo para el menú desplegable */
         .dropdown-content {
-            display: none;
+            display: none; /* Oculto por defecto */
             position: absolute;
             top: 50px;
             right: 20px;
@@ -89,7 +73,8 @@
             background-color: #ddd;
         }
 
-        .dropdown:hover .dropdown-content {
+        /* Mostrar el menú desplegable solo cuando se hace clic */
+        .dropdown.open .dropdown-content {
             display: block;
         }
 
@@ -99,7 +84,9 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: url('hero-image.jpg') no-repeat center center/cover; /* COLOCA TU IMAGEN HERO AQUÍ */
+            background: url('TU IMAGEN HERO AQUI') no-repeat center center/cover; /* COLOCA TU IMAGEN HERO AQUÍ */
+            background-size: cover; /* RESPONSIVO */
+            background-position: center;
         }
 
         /* Estilo para el footer */
@@ -124,13 +111,6 @@
             text-decoration: none;
         }
 
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            margin-bottom: 10px;
-        }
-
         .footer-logo img {
             max-width: 50px; /* CAMBIA EL TAMAÑO DEL LOGO EN EL FOOTER AQUÍ */
             height: auto;
@@ -140,20 +120,15 @@
 <body>
 
     <header>
-        <!-- Logo y texto -->
+        <!-- Logo de la empresa -->
         <div class="logo">
-            <img src="logo.png" alt="Logo Rare Sauce Studio"> <!-- COLOCA TU IMAGEN PNG AQUÍ -->
-            <div class="logo-text">Rare Sauce Studio</div>
+            <img src="IMGs/SVG/header logo.svg" alt="Logo Rare Sauce Studio"> <!-- COLOCA TU IMAGEN DE LOGO AQUÍ -->
         </div>
 
-        <!-- Menú desplegable -->
+        <!-- Menú desplegable personalizado -->
         <div class="dropdown">
-            <button>
-                <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
-                    <rect class="cls-1" width="100" height="10"></rect>
-                    <rect class="cls-1" y="30" width="100" height="10"></rect>
-                    <rect class="cls-1" y="60" width="100" height="10"></rect>
-                </svg>
+            <button onclick="toggleDropdown(this)">
+                <img src="IMGs/SVG/RS_bocadillo 1.1.svg" alt="Menú"> <!-- COLOCA TU IMAGEN PARA EL MENÚ AQUÍ -->
             </button>
             <div class="dropdown-content">
                 <a href="services.html" target="_blank">Servicios</a> <!-- ABRE EN PESTAÑA NUEVA -->
@@ -164,7 +139,7 @@
     </header>
 
     <section id="home">
-        <!-- Imagen Hero -->
+        <!-- Imagen Hero Responsiva -->
     </section>
 
     <!-- Footer -->
@@ -175,10 +150,28 @@
             <a href="https://youtube.com" target="_blank">YouTube</a> <!-- PON LAS URLs AQUÍ -->
         </div>
         <div class="footer-logo">
-            <img src="logo.png" alt="Logo Rare Sauce Studio"> <!-- COLOCA TU IMAGEN PNG AQUÍ -->
+            <img src="LOGO_DE_EMPRESA_AQUI.png" alt="Logo Rare Sauce Studio"> <!-- COLOCA TU IMAGEN DE LOGO AQUÍ -->
         </div>
         <p>&copy; 2025 Rare Sauce Studio. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- Script para manejar el desplegable -->
+    <script>
+        function toggleDropdown(button) {
+            const dropdown = button.closest('.dropdown');
+            dropdown.classList.toggle('open'); // Agrega o quita la clase 'open'
+        }
+
+        // Cerrar el menú si se hace clic fuera de él
+        document.addEventListener('click', function(event) {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.classList.remove('open');
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
