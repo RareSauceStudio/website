@@ -15,124 +15,170 @@
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            background-color: #f4f4f4;
+            background-color: #c9c8d6; /* COLOR DE FONDO IGUAL AL HEADER */
             color: #333;
         }
 
         header {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
+            background: #c9c8d6; /* COLOR DE FONDO DEL HEADER */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            position: relative;
         }
 
-        header h1 {
-            margin: 0;
+        /* Espacio para el logo */
+        .logo {
+            display: flex;
+            align-items: center;
         }
 
-        nav {
-            background: #444;
-            color: #fff;
-            text-align: center;
-            padding: 0.5rem 0;
+        .logo img {
+            max-width: 50px; /* CAMBIA EL TAMAÑO DE LA IMAGEN AQUÍ */
+            height: auto;
         }
 
-        nav a {
-            color: #fff;
+        .logo-text {
+            margin-left: 10px;
+            font-weight: bold;
+            color: #4c4b4c;
+        }
+
+        /* Estilo para el botón de menú */
+        .dropdown button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .dropdown svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        .cls-1 {
+            fill: none;
+            stroke: #4c4b4c; /* COLOR DEL ICONO DEL MENÚ */
+            stroke-linecap: round;
+            stroke-miterlimit: 10;
+            stroke-width: 7px;
+        }
+
+        /* Estilo para el menú desplegable */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
             text-decoration: none;
-            margin: 0 1rem;
+            display: block;
         }
 
-        main {
-            padding: 20px;
+        .dropdown-content a:hover {
+            background-color: #ddd;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
 
-        section {
-            background: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
+        /* Estilo para la imagen hero en Home */
+        #home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('hero-image.jpg') no-repeat center center/cover; /* COLOCA TU IMAGEN HERO AQUÍ */
         }
 
+        /* Estilo para el footer */
         footer {
             background: #333;
             color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* Diseño para pantallas pequeñas */
-        @media (max-width: 768px) {
-            nav a {
-                display: block;
-                margin: 0.5rem 0;
-            }
+        .footer-icons {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
 
-            .container {
-                padding: 0 15px;
-            }
+        .footer-icons a {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo img {
+            max-width: 50px; /* CAMBIA EL TAMAÑO DEL LOGO EN EL FOOTER AQUÍ */
+            height: auto;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Mi Página Web Responsiva</h1>
+        <!-- Logo y texto -->
+        <div class="logo">
+            <img src="logo.png" alt="Logo Rare Sauce Studio"> <!-- COLOCA TU IMAGEN PNG AQUÍ -->
+            <div class="logo-text">Rare Sauce Studio</div>
+        </div>
+
+        <!-- Menú desplegable -->
+        <div class="dropdown">
+            <button>
+                <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+                    <rect class="cls-1" width="100" height="10"></rect>
+                    <rect class="cls-1" y="30" width="100" height="10"></rect>
+                    <rect class="cls-1" y="60" width="100" height="10"></rect>
+                </svg>
+            </button>
+            <div class="dropdown-content">
+                <a href="servicios.html" target="_blank">Servicios</a> <!-- ABRE EN PESTAÑA NUEVA -->
+                <a href="precios.html" target="_blank">Precios</a> <!-- ABRE EN PESTAÑA NUEVA -->
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
     </header>
 
-    <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
+    <section id="home">
+        <!-- Imagen Hero -->
+    </section>
 
-    <main>
-        <div class="container">
-
-            <section id="inicio">
-                <h2>Bienvenido</h2>
-                <p>Esta es una página web responsiva diseñada para adaptarse a diferentes dispositivos.</p>
-            </section>
-
-            <section id="servicios">
-                <h2>Nuestros Servicios</h2>
-                <p>Ofrecemos una variedad de servicios para satisfacer tus necesidades.</p>
-            </section>
-
-            <section id="contacto">
-                <h2>Contacto</h2>
-                <p>Ponte en contacto con nosotros a través de este formulario:</p>
-                <form>
-                    <input type="text" placeholder="Nombre" required><br><br>
-                    <input type="email" placeholder="Correo electrónico" required><br><br>
-                    <textarea placeholder="Mensaje" rows="4" required></textarea><br><br>
-                    <button type="submit">Enviar</button>
-                </form>
-            </section>
-
-        </div>
-    </main>
-
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2023 Mi Página Web. Todos los derechos reservados.</p>
+        <div class="footer-icons">
+            <a href="https://instagram.com" target="_blank">Instagram</a> <!-- PON LAS URLs AQUÍ -->
+            <a href="https://tiktok.com" target="_blank">TikTok</a> <!-- PON LAS URLs AQUÍ -->
+            <a href="https://youtube.com" target="_blank">YouTube</a> <!-- PON LAS URLs AQUÍ -->
+        </div>
+        <div class="footer-logo">
+            <img src="logo.png" alt="Logo Rare Sauce Studio"> <!-- COLOCA TU IMAGEN PNG AQUÍ -->
+        </div>
+        <p>&copy; 2025 Rare Sauce Studio. Todos los derechos reservados.</p>
     </footer>
 
-</body>
-</html><!doctype html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Rare Sauce Sitio Official</title>
-</head>
-
-<body>
 </body>
 </html>
